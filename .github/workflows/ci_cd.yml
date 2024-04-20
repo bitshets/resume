@@ -1,0 +1,57 @@
+name: 'Resume CI/CD'
+
+on:
+  push:
+    branches:
+      - main 
+
+permissions: write-all
+
+jobs:
+  flutter_test:
+    name: Flutter code test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: "18.x"
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.5'
+          channel: "stable"
+      - name: Flutter Test
+        run: |
+          flutter pub get
+          flutter analyze
+          flutter test
+
+  build_web:
+    name: Build Flutter Web
+    needs: [flutter_test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "18.x"
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+      - run: flutter doctor
+      - run: flutter clean
+      - run: flutter pub upgrade
+      - run: flutter pub get
+      - run: flutter config --enable-web
+      - run: flutter build web --web-renderer html --release --base-href='/resume/'
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
+          user_name: 'bitshets'
+          user_email: 'bitshets@gmail.com'
+          commit_message: 'Publish to gh-pages'

@@ -45,7 +45,7 @@ jobs:
       - run: flutter pub upgrade
       - run: flutter pub get
       - run: flutter config --enable-web
-      - run: flutter build web --web-renderer html --release --base-href='/resume/'
+      - run: flutter build web --web-renderer html --release --base-href='/resume/' --no-tree-shake-icons
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:resume/NavBar/nav_bar_item.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,39 +32,77 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  List<String> title = [
+    "Home",
+    "Profile",
+    "Resume",
+    "Works",
+  ];
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  List<IconData> icon = [
+    Feather.home,
+    Feather.user,
+    Feather.clipboard,
+    Feather.briefcase,
+  ];
+
+  List<bool> selected = [true, false, false, false];
+
+  void select(int n) {
+    for (int i = 0; i < 4; i++) {
+      if (i == n) {
+        selected[i] = true;
+      } else {
+        selected[i] = false;
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      body: Stack(
+        children: [
+          Container(
+            color: const Color.fromARGB(255, 216, 216, 216),
+          ),
+          Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.all(30.0),
+                height: MediaQuery.of(context).size.height,
+                width: 101.0,
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 24, 24, 26),
+                  borderRadius: BorderRadius.horizontal(
+                    left: Radius.circular(20.0),
+                  ),
+                ),
+                child: Positioned(
+                  top: 10.0,
+                  child: Column(
+                    children: icon
+                        .map(
+                          (e) => NavBarItem(
+                            icon: e,
+                            title: title[icon.indexOf(e)],
+                            selected: selected[icon.indexOf(e)],
+                            onTap: () {
+                              setState(
+                                () {
+                                  select(icon.indexOf(e));
+                                },
+                              );
+                            },
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

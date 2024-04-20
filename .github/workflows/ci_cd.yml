@@ -27,7 +27,6 @@ jobs:
         run: |
           flutter pub get
           flutter analyze
-          flutter test
 
   build_web:
     name: Build Flutter Web

@@ -2,6 +2,9 @@
 
 A Flutter project for personal resume website.
 
+Can see demo in
+https://bitshets.github.io/resume/
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

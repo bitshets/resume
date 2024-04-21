@@ -38,7 +38,6 @@ class CurvePainter extends CustomPainter {
     path.close();
 
     paint.color = const Color.fromARGB(255, 216, 216, 216);
-    paint.strokeWidth = 101.0;
     canvas.drawPath(path, paint);
   }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import "package:flutter_feather_icons/flutter_feather_icons.dart";
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:resume/NavBar/nav_bar_item.dart';
 
 void main() {
@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Paul Huang',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Paul Huang'),
@@ -39,11 +38,11 @@ class _MyHomePageState extends State<MyHomePage> {
     "Works",
   ];
 
-  List<IconData> icon = const [
-    FeatherIcons.home,
-    FeatherIcons.user,
-    FeatherIcons.clipboard,
-    FeatherIcons.briefcase,
+  List<IconData> icon = [
+    FontAwesomeIcons.house,
+    FontAwesomeIcons.solidUser,
+    FontAwesomeIcons.clipboardList,
+    FontAwesomeIcons.suitcase,
   ];
 
   List<bool> selected = [true, false, false, false];

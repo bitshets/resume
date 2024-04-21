@@ -121,8 +121,9 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
                       Icon(
                         widget.icon,
                         color: _color.value,
-                        size: 24.0,
+                        size: 20.0,
                       ),
+                      const SizedBox(height: 5.0),
                       Text(
                         widget.title,
                         style: TextStyle(

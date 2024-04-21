@@ -123,14 +123,14 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
                     children: [
                       Icon(
                         widget.icon,
-                        color: _color.value,
+                        color: const Color.fromARGB(255, 216, 216, 216),
                         size: 20.0,
                       ),
                       const SizedBox(height: 5.0),
                       Text(
                         widget.title,
-                        style: TextStyle(
-                          color: _color.value,
+                        style: const TextStyle(
+                          color: Color.fromARGB(255, 216, 216, 216),
                           fontSize: 12.0,
                         ),
                       ),

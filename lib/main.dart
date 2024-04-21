@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
     FontAwesomeIcons.suitcase,
   ];
 
-  List<bool> selected = [true, false, false, false];
+  List<bool> selected = [false, false, false, false];
 
   void select(int n) {
     for (int i = 0; i < 4; i++) {

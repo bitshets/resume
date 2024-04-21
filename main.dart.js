@@ -38702,7 +38702,7 @@ case 2:return A.P(o,r)}})
 return A.R($async$lD,r)}}
 A.Yi.prototype={}
 A.p4.prototype={
-gkU(){return"profile_photo.jpg"},
+gkU(){return"assets/profile_photo.jpg"},
 vD(a){var s,r={},q=a.a
 if(q==null)q=$.Kr()
 r.a=r.b=null
@@ -52327,7 +52327,7 @@ A.rh.prototype={
 an(){return new A.G7(A.a(["Home","Profile","Resume","Works"],t.s),A.a([B.Bj,B.Bi,B.Bh,B.Bg],t.G1),B.o)}}
 A.G7.prototype={
 O(a){var s=null,r=A.dr(a,s,t.w).w,q=this.d,p=A.a2(q).h("a5<1,jd>"),o=t.m
-return new A.tm(A.Cu(B.cr,A.a([new A.eN(1/0,1/0,new A.CB(B.vy,new A.tR("background/rainbow-vortex.svg",s,s,s,s),s,s),s),A.kc(s,A.a44(A.a([A.kc(s,A.a6j(A.Y(new A.a5(q,new A.ZF(this),p),!0,p.h("am.E")),B.d_),s,B.vw,r.a.b,s,s,101),new A.q8(1,B.es,new A.qY(s),s),B.IG],o),B.d_,B.ca),s,B.vv,s,B.AK,s,s)],o),B.dC),s)}}
+return new A.tm(A.Cu(B.cr,A.a([new A.eN(1/0,1/0,new A.CB(B.vy,new A.tR("assets/background/rainbow-vortex.svg",s,s,s,s),s,s),s),A.kc(s,A.a44(A.a([A.kc(s,A.a6j(A.Y(new A.a5(q,new A.ZF(this),p),!0,p.h("am.E")),B.d_),s,B.vw,r.a.b,s,s,101),new A.q8(1,B.es,new A.qY(s),s),B.IG],o),B.d_,B.ca),s,B.vv,s,B.AK,s,s)],o),B.dC),s)}}
 A.ZF.prototype={
 $1(a){var s=this.a,r=s.d
 return new A.jd(s.e[B.b.cp(r,a)],a,new A.ZE(s,a),B.b.cp(r,a)===s.f,null)},

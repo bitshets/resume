@@ -48,7 +48,10 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
     _color = ColorTween(
       end: const Color.fromARGB(255, 24, 24, 26),
       begin: const Color.fromARGB(255, 216, 216, 216),
-    ).animate(_controller2);
+    ).animate(_controller2)
+      ..addListener(() {
+        setState(() {});
+      });
 
     _controller1.addListener(() {
       setState(() {});
@@ -63,7 +66,7 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
     super.didUpdateWidget(oldWidget);
     if (!widget.selected) {
       Future.delayed(const Duration(milliseconds: 10), () {
-        //_controller1.reverse();
+        _controller1.reverse();
       });
       _controller1.reverse();
       _controller2.reverse();
@@ -71,7 +74,7 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
       _controller1.forward();
       _controller2.forward();
       Future.delayed(const Duration(milliseconds: 10), () {
-        //_controller2.forward();
+        _controller2.forward();
       });
     }
   }
@@ -120,14 +123,14 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
                     children: [
                       Icon(
                         widget.icon,
-                        color: _color.value ?? Colors.white,
+                        color: _color.value,
                         size: 20.0,
                       ),
                       const SizedBox(height: 5.0),
                       Text(
                         widget.title,
                         style: TextStyle(
-                          color: _color.value ?? Colors.white,
+                          color: _color.value,
                           fontSize: 12.0,
                         ),
                       ),

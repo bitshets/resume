@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           SizedBox.expand(
             child: SvgPicture.asset(
-              'background/rainbow-vortex.svg',
+              'assets/background/rainbow-vortex.svg',
               fit: BoxFit.cover,
             ),
           ),

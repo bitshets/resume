@@ -62,7 +62,7 @@ class ProfilePhoto extends StatelessWidget {
       ),
       child: const ClipOval(
         child: Image(
-          image: AssetImage('profile_photo.jpg'),
+          image: AssetImage('assets/profile_photo.jpg'),
         ),
       ),
     );

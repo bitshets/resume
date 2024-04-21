@@ -77,20 +77,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     left: Radius.circular(20.0),
                   ),
                 ),
-                child:
-                    const SizedBox(), /*Positioned(
+                child: Positioned(
                   top: 10.0,
                   child: Column(
-                    children: icon
+                    children: title
                         .map(
                           (e) => NavBarItem(
-                            icon: e,
-                            title: title[icon.indexOf(e)],
-                            selected: selected[icon.indexOf(e)],
+                            icon: icon[title.indexOf(e)],
+                            title: e,
+                            selected: selected[title.indexOf(e)],
                             onTap: () {
                               setState(
                                 () {
-                                  select(icon.indexOf(e));
+                                  select(title.indexOf(e));
                                 },
                               );
                             },
@@ -98,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         )
                         .toList(),
                   ),
-                ),*/
+                ),
               ),
             ],
           ),

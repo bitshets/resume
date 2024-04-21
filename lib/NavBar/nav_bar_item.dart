@@ -118,12 +118,13 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      /*
                       Icon(
                         widget.icon,
                         color: _color.value ?? Colors.white,
                         size: 20.0,
                       ),
-                      const SizedBox(height: 5.0),
+                      const SizedBox(height: 5.0),*/
                       Text(
                         widget.title,
                         style: TextStyle(

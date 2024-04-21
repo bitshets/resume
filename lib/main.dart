@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:resume/NavBar/nav_bar_item.dart';
+//import 'package:resume/NavBar/nav_bar_item.dart';
 
 void main() {
   runApp(const MyApp());
@@ -77,7 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     left: Radius.circular(20.0),
                   ),
                 ),
-                child: Positioned(
+                child:
+                    const SizedBox(), /*Positioned(
                   top: 10.0,
                   child: Column(
                     children: title
@@ -97,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         )
                         .toList(),
                   ),
-                ),
+                ),*/
               ),
             ],
           ),

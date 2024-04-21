@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import "package:flutter_feather_icons/flutter_feather_icons.dart";
 import 'package:resume/NavBar/nav_bar_item.dart';
 
 void main() {
@@ -40,10 +40,10 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   List<IconData> icon = const [
-    Feather.home,
-    Feather.user,
-    Feather.clipboard,
-    Feather.briefcase,
+    FeatherIcons.home,
+    FeatherIcons.user,
+    FeatherIcons.clipboard,
+    FeatherIcons.briefcase,
   ];
 
   List<bool> selected = [true, false, false, false];

@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "Works",
   ];
 
-  List<IconData> icon = [
+  List<IconData> icon = const [
     Feather.home,
     Feather.user,
     Feather.clipboard,

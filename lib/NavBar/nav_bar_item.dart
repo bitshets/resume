@@ -26,7 +26,7 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
   late Animation<double> _anim1;
   late Animation<double> _anim2;
   late Animation<double> _anim3;
-  late Animation<Color?> _color;
+  //late Animation<Color?> _color;
 
   bool hovered = false;
 
@@ -45,13 +45,13 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
     _anim1 = Tween(begin: 101.0, end: 75.0).animate(_controller1);
     _anim2 = Tween(begin: 101.0, end: 20.0).animate(_controller2);
     _anim3 = Tween(begin: 101.0, end: 42.0).animate(_controller2);
-    _color = ColorTween(
+    /*_color = ColorTween(
       end: const Color.fromARGB(255, 24, 24, 26),
       begin: const Color.fromARGB(255, 216, 216, 216),
     ).animate(_controller2)
       ..addListener(() {
         setState(() {});
-      });
+      });*/
 
     _controller1.addListener(() {
       setState(() {});

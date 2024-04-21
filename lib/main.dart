@@ -77,7 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     left: Radius.circular(20.0),
                   ),
                 ),
-                child: Positioned(
+                child:
+                    const SizedBox(), /*Positioned(
                   top: 10.0,
                   child: Column(
                     children: icon
@@ -97,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         )
                         .toList(),
                   ),
-                ),
+                ),*/
               ),
             ],
           ),

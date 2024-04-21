@@ -96,50 +96,63 @@ class _NavBarItemState extends State<NavBarItem> with TickerProviderStateMixin {
             hovered = false;
           });
         },
-        child: Container(
-          width: 101.0,
-          color:
-              hovered && !widget.selected ? Colors.white12 : Colors.transparent,
-          child: Stack(
-            children: [
-              Positioned(
-                child: SizedBox(
-                  child: CustomPaint(
-                    painter: CurvePainter(
-                      value1: 0,
-                      animValue1: _anim3.value,
-                      animValue2: _anim2.value,
-                      animValue3: _anim1.value,
+        child: Stack(
+          children: [
+            SizedBox(
+              height: 100.0,
+              width: 101.0,
+              child: Center(
+                child: Container(
+                  width: 60.0,
+                  height: 60.0,
+                  decoration: BoxDecoration(
+                    color: hovered && !widget.selected
+                        ? Colors.white12
+                        : Colors.transparent,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(10.0),
                     ),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 100.0,
-                width: 101.0,
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        widget.icon,
-                        color: _color.value,
-                        size: 20.0,
-                      ),
-                      const SizedBox(height: 5.0),
-                      Text(
-                        widget.title,
-                        style: TextStyle(
-                          color: _color.value,
-                          fontSize: 12.0,
-                        ),
-                      ),
-                    ],
+            ),
+            Positioned(
+              child: SizedBox(
+                child: CustomPaint(
+                  painter: CurvePainter(
+                    value1: 0,
+                    animValue1: _anim3.value,
+                    animValue2: _anim2.value,
+                    animValue3: _anim1.value,
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 100.0,
+              width: 101.0,
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      widget.icon,
+                      color: _color.value,
+                      size: 20.0,
+                    ),
+                    const SizedBox(height: 5.0),
+                    Text(
+                      widget.title,
+                      style: TextStyle(
+                        color: _color.value,
+                        fontSize: 12.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

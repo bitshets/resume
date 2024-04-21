@@ -77,26 +77,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     left: Radius.circular(20.0),
                   ),
                 ),
-                child: Positioned(
-                  top: 10.0,
-                  child: Column(
-                    children: title
-                        .map(
-                          (e) => NavBarItem(
-                            icon: icon[title.indexOf(e)],
-                            title: e,
-                            selected: selected[title.indexOf(e)],
-                            onTap: () {
-                              setState(
-                                () {
-                                  select(title.indexOf(e));
-                                },
-                              );
-                            },
-                          ),
-                        )
-                        .toList(),
-                  ),
+                child: Column(
+                  children: title
+                      .map(
+                        (e) => NavBarItem(
+                          icon: icon[title.indexOf(e)],
+                          title: e,
+                          selected: selected[title.indexOf(e)],
+                          onTap: () {
+                            setState(
+                              () {
+                                select(title.indexOf(e));
+                              },
+                            );
+                          },
+                        ),
+                      )
+                      .toList(),
                 ),
               ),
             ],

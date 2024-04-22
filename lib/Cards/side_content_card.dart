@@ -202,7 +202,7 @@ class _DownloadCSVButtonState extends State<DownloadCSVButton>
         ),
       ),
       child: GestureDetector(
-        onTap: () => downloadResumeFile("assets/Paul_Huang_resume.pdf"),
+        onTap: () => downloadResumeFile("assets/assets/Paul_Huang_resume.pdf"),
         child: MouseRegion(
           onEnter: (value) {
             _controller.forward();

@@ -4,6 +4,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:resume/Cards/main_content_card.dart';
 import 'package:resume/Cards/side_content_card.dart';
 import 'package:resume/NavBar/nav_bar_item.dart';
+import 'package:resume/Pages/home_page.dart';
+import 'package:resume/Pages/logs_page.dart';
+import 'package:resume/Pages/pages.dart';
+import 'package:resume/Pages/profile_page.dart';
+import 'package:resume/Pages/resume_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,18 +39,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<String> title = [
-    "Home",
-    "Profile",
-    "Resume",
-    "Works",
-  ];
-
-  List<IconData> icon = [
-    FontAwesomeIcons.house,
-    FontAwesomeIcons.solidUser,
-    FontAwesomeIcons.clipboardList,
-    FontAwesomeIcons.suitcase,
+  List<Pages> pages = [
+    HomePage(),
+    ProfilePage(),
+    ResumePage(),
+    LogsPage(),
   ];
 
   int _curPage = 0;
@@ -92,16 +90,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   child: Column(
-                    children: title
+                    children: pages
                         .map(
                           (e) => NavBarItem(
-                            icon: icon[title.indexOf(e)],
-                            title: e,
-                            selected: title.indexOf(e) == _curPage,
+                            icon: e.icon,
+                            title: e.title,
+                            selected: pages.indexOf(e) == _curPage,
                             onTap: () {
                               setState(
                                 () {
-                                  select(title.indexOf(e));
+                                  select(pages.indexOf(e));
                                 },
                               );
                             },
@@ -112,7 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Expanded(
                   child: MainContentCard(
-                    pageSelected: _curPage,
+                    currentPage: _curPage,
+                    content: pages[_curPage].pageView,
                   ),
                 ),
                 const SideContentCard(),

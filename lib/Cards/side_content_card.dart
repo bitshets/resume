@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -29,6 +31,8 @@ class SideContentCard extends StatelessWidget {
           SubTitle(),
           SizedBox(height: 10.0),
           PersonalLinks(),
+          SizedBox(height: 40.0),
+          DownloadCSVButton(),
           Expanded(
             child: SizedBox(),
           ),
@@ -110,14 +114,13 @@ class PersonalLinks extends StatelessWidget {
         Uri(scheme: 'https', host: 'www.linkedin.com', path: 'in/bitshets');
     final Uri github =
         Uri(scheme: 'https', host: 'github.com', path: 'bitshets');
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton(
           onPressed: () async {
-            await _launchInBrowser(
-              linkedin,
-            );
+            await launchUrl(linkedin);
           },
           tooltip: "LinkedIn",
           icon: const Icon(
@@ -129,9 +132,7 @@ class PersonalLinks extends StatelessWidget {
         const SizedBox(width: 10.0),
         IconButton(
           onPressed: () async {
-            await _launchInBrowser(
-              github,
-            );
+            await launchUrl(github);
           },
           tooltip: "GitHub",
           icon: const Icon(
@@ -143,14 +144,98 @@ class PersonalLinks extends StatelessWidget {
       ],
     );
   }
+}
 
-  Future<void> _launchInBrowser(Uri url) async {
-    if (!await launchUrl(
-      url,
-      mode: LaunchMode.externalApplication,
-    )) {
-      throw Exception('Could not launch $url');
-    }
+class DownloadCSVButton extends StatefulWidget {
+  const DownloadCSVButton({super.key});
+
+  @override
+  State<DownloadCSVButton> createState() => _DownloadCSVButtonState();
+}
+
+class _DownloadCSVButtonState extends State<DownloadCSVButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<Color?> _color1;
+  late Animation<Color?> _color2;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 100),
+    );
+
+    _color1 = ColorTween(
+      end: const Color.fromARGB(255, 230, 230, 230),
+      begin: const Color.fromARGB(255, 128, 128, 128),
+    ).animate(_controller)
+      ..addListener(() {
+        setState(() {});
+      });
+
+    _color2 = ColorTween(
+      end: const Color.fromARGB(255, 128, 128, 128),
+      begin: const Color.fromARGB(255, 230, 230, 230),
+    ).animate(_controller)
+      ..addListener(() {
+        setState(() {});
+      });
+
+    _controller.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50.0,
+      width: 200.0,
+      decoration: BoxDecoration(
+        color: _color1.value,
+        borderRadius: BorderRadius.circular(50),
+        border: Border.all(
+          color: const Color.fromARGB(255, 230, 230, 230),
+          width: 2.0,
+        ),
+      ),
+      child: GestureDetector(
+        onTap: () => downloadResumeFile("assets/Paul_Huang_resume.pdf"),
+        child: MouseRegion(
+          onEnter: (value) {
+            _controller.forward();
+          },
+          onExit: (value) {
+            _controller.reverse();
+          },
+          cursor: SystemMouseCursors.click,
+          child: Center(
+            child: Text(
+              "Download CV",
+              style: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.w600,
+                color: _color2.value,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  downloadResumeFile(url) {
+    final anchor = html.document.createElement('a') as html.AnchorElement
+      ..href = url
+      ..style.display = 'none'
+      ..download = 'Paul_Huang_Resume.pdf';
+    html.document.body?.children.add(anchor);
+
+    anchor.click();
+
+    html.document.body?.children.remove(anchor);
   }
 }
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:resume/Cards/main_content_card.dart';
 import 'package:resume/Cards/side_content_card.dart';
 import 'package:resume/NavBar/nav_bar_item.dart';
